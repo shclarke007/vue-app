@@ -36,6 +36,14 @@ export default {
 
   #employee-form {
     padding: 20px;
+    
+  }
+
+  @media screen and (min-width: 600px) {
+    #employee-form {
+    width: 50%;
+    margin: 0 auto;
+  }
   }
 </style>
 
