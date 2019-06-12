@@ -9,17 +9,9 @@
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td>Richard Hendricks</td>
-          <td>richard@piedpiper.com</td>
-        </tr>
-        <tr>
-          <td>Bertram Gilfoyle</td>
-          <td>gilfoyle@piedpier.com</td>
-        </tr>
-        <tr>
-          <td>Dinesh Chugtai</td>
-          <td>dinesh@pipedpiper.com</td>
+        <tr v-for="employee in employees" :key="employee.id">
+          <td>{{employee.name}}</td>
+          <td>{{employee.email}}</td>
         </tr>
       </tbody>
     </table>

@@ -8,7 +8,9 @@
       <HelloWorld msg="Demo Vue App"/>
     </header>
     </nav>
-    <EmployeeTable heading="Employees Table"/>
+    <div>
+      <employee-table heading="Employees Table" :employees="employees" />
+    </div>
   </div>
 </template>
 
@@ -23,23 +25,30 @@ export default {
     EmployeeTable
   },
   data() {
-  employees: [
-    {
-      id: 1,
-      name: 'Richard Hendricks',
-      email: 'richard@piedpiper.com'
-    },
-    {
-      id: 2,
-      name:'Bertram Gilfoyle',
-      email: 'gilfoyle@piedpiper.com'
-    },
-    {
-      id: 3,
-      name: 'Dinesh Chugtai',
-      email: 'dinesh@piedpiper.com'
-    }
-  ]
+    return {
+      employees: [
+        {
+          id: 1,
+          name: 'Richard Hendricks',
+          email: 'richard@piedpiper.com',
+        },
+        {
+          id: 2,
+          name:'Bertram Gilfoyle',
+          email: 'gilfoyle@piedpiper.com',
+        },
+        {
+          id: 3,
+          name: 'Dinesh Chugtai',
+          email: 'dinesh@piedpiper.com',
+        },
+         {
+          id: 4,
+          name: 'Socks Gigs',
+          email: 'socks@piedpiper.com',
+        }
+      ]
+  }
 }
 }
 </script>
