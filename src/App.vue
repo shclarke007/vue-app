@@ -1,6 +1,8 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
+    <div class="logo-container">
+      <img alt="Vue logo" src="./assets/logo.png">
+    </div>
     <HelloWorld msg="I am in Vue.js App"/>
     <EmployeeTable />
   </div>
@@ -15,7 +17,26 @@ export default {
   components: {
     HelloWorld,
     EmployeeTable
-  }
+  },
+  data() {
+  employees: [
+    {
+      id: 1,
+      name: 'Richard Hendricks',
+      email: 'richard@piedpiper.com'
+    },
+    {
+      id: 2,
+      name:'Bertram Gilfoyle',
+      email: 'gilfoyle@piedpiper.com'
+    },
+    {
+      id: 3,
+      name: 'Dinesh Chugtai',
+      email: 'dinesh@piedpiper.com'
+    }
+  ]
+}
 }
 </script>
 
@@ -26,7 +47,19 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+  margin: 0 auto;
+  width: 50%;
+  border: 1px solid black;
+}
+
+.logo-container {
+  height: 50px;
+  width: 50px;
+  border: 1px solid black;
+}
+
+.logo-container img {
+  height: 50px;
 }
 
 button {
