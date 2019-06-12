@@ -9,7 +9,7 @@
     </header>
     </nav>
     <div>
-      <employee-form />
+      <employee-form @add:employee="addEmployee" />
     </div>
     <div>
       <employee-table heading="Employees Table" :employees="employees" />
@@ -54,7 +54,15 @@ export default {
         }
       ]
   }
-}
+}, 
+  methods: {
+    addEmployee(employee) {
+      const lastId = this.employees.length > 0 ? this.employees[this.employees.length - 1].id : 0;
+      const id = lastId + 1;
+      const newEmployee = { ...employee, id };
+      this.employees = [...this.employees, newEmployee];
+    }
+  }
 }
 </script>
 
@@ -66,7 +74,7 @@ export default {
   text-align: center;
   color: #2c3e50;
   padding: 10px;
-  border: 1px solid black;
+  /* border: 1px solid black; */
   display: flex;
   flex-direction: column;
 }

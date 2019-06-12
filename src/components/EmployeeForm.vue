@@ -1,10 +1,10 @@
 <template>
   <div>
-    <form id="employee-form">
+    <form id="employee-form" @submit.prevent="handleSubmit">
       <label>Employee name</label>
-      <input for="employee-name" type="text" placeholder="enter name"/>
+      <input v-model="employee.name" for="employee-name" type="text" placeholder="enter name"/>
       <label>Employee email</label>
-      <input for="employee-email" type="text" placeholder="enter email"/>
+      <input v-model="employee.email" for="employee-email" type="text" placeholder="enter email"/>
       <button>Add Employee</button>
     </form>
   </div>
@@ -21,12 +21,21 @@ export default {
       },
     }
   },
+  methods: {
+    handleSubmit() {
+      this.$emit('add:employee', this.employee);
+    }
+  }
 }
 </script>
 
 <style scoped>
   form {
     margin-bottom: 2rem;
+  }
+
+  #employee-form {
+    padding: 20px;
   }
 </style>
 
