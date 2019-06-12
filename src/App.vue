@@ -1,16 +1,20 @@
 <template>
   <div id="app">
-    <div class="logo-container">
+    <nav>
+      <div class="logo-container">
       <img alt="Vue logo" src="./assets/logo.png">
     </div>
-    <HelloWorld msg="I am in Vue.js App"/>
-    <EmployeeTable />
+    <header>
+      <HelloWorld msg="Demo Vue App"/>
+    </header>
+    </nav>
+    <EmployeeTable heading="Employees Table"/>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-import EmployeeTable from './components/EmployeeTable.vue'
+import HelloWorld from '@/components/HelloWorld.vue'
+import EmployeeTable from '@/components/EmployeeTable.vue'
 
 export default {
   name: 'app',
@@ -47,19 +51,26 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin: 0 auto;
-  width: 50%;
+  padding: 10px;
   border: 1px solid black;
+  display: flex;
+  flex-direction: column;
 }
 
 .logo-container {
   height: 50px;
   width: 50px;
-  border: 1px solid black;
+  /* border: 1px solid black; */
 }
 
 .logo-container img {
   height: 50px;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 button {

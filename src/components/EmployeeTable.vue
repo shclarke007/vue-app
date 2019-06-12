@@ -1,5 +1,6 @@
 <template>
   <div id="employee-table">
+    <h2>{{heading}}</h2>
     <table>
       <thead>
         <tr>
@@ -28,6 +29,10 @@
 <script>
 export default {
   name: 'employee-table',
+  props: {
+    employees: Array,
+    heading: String,
+  },
 }
 </script>
 
