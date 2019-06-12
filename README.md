@@ -1,7 +1,15 @@
 # Vue-demo app
 
 ## Purpose
-Learn Vue framework
+Learn Vue framework.  
+Covering basic features such as:  
+- Vue file anatomy
+- Passing and Receiving prop(s)
+- Handling events
+- Emit events to parent
+- Retrieving events from child
+- Form validation
+- Make API calls
 
 ## Project setup
 ```
