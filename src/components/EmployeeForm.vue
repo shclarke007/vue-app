@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="form-container">
     <form id="employee-form" @submit.prevent="handleSubmit">
       <label>Employee name</label>
       <input v-model="employee.name" for="employee-name" type="text" placeholder="enter name"/>
@@ -34,14 +34,14 @@ export default {
     margin-bottom: 2rem;
   }
 
-  #employee-form {
+  .form-container {
     padding: 20px;
     
   }
 
   @media screen and (min-width: 600px) {
-    #employee-form {
-    width: 50%;
+    .form-container {
+    width: 20%;
     margin: 0 auto;
   }
   }
