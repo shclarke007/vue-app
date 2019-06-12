@@ -31,36 +31,22 @@ export default {
   },
   data() {
     return {
-      employees: [
-        {
-          id: 1,
-          name: 'Richard Hendricks',
-          email: 'richard@piedpiper.com',
-        },
-        {
-          id: 2,
-          name:'Bertram Gilfoyle',
-          email: 'gilfoyle@piedpiper.com',
-        },
-        {
-          id: 3,
-          name: 'Dinesh Chugtai',
-          email: 'dinesh@piedpiper.com',
-        },
-         {
-          id: 4,
-          name: 'Socks Gigs',
-          email: 'socks@piedpiper.com',
-        }
-      ]
+      employees: [],
   }
 }, 
+  mounted() {
+    const employees = JSON.parse(localStorage.getItem('employees'))
+    if(employees){
+      this.employees = employees
+    }
+  },
   methods: {
     addEmployee(employee) {
       const lastId = this.employees.length > 0 ? this.employees[this.employees.length - 1].id : 0;
       const id = lastId + 1;
       const newEmployee = { ...employee, id };
       this.employees = [...this.employees, newEmployee];
+      localStorage.setItem('employees', JSON.stringify(this.employees))
     }
   }
 }
