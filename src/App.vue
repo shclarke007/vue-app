@@ -9,6 +9,9 @@
     </header>
     </nav>
     <div>
+      <employee-form />
+    </div>
+    <div>
       <employee-table heading="Employees Table" :employees="employees" />
     </div>
   </div>
@@ -17,12 +20,14 @@
 <script>
 import HelloWorld from '@/components/HelloWorld.vue'
 import EmployeeTable from '@/components/EmployeeTable.vue'
+import EmployeeForm from '@/components/EmployeeForm.vue'
 
 export default {
   name: 'app',
   components: {
     HelloWorld,
-    EmployeeTable
+    EmployeeTable,
+    EmployeeForm
   },
   data() {
     return {
