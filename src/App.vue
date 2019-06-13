@@ -12,7 +12,14 @@
       <employee-form @add:employee="addEmployee" />
     </div>
     <div>
-      <employee-table title="Employees Table" :employees="employees" />
+      <employee-table 
+        title="Employees Table" 
+        name="Name" 
+        email="Email"
+        actions="Actions"
+        :employees="employees" 
+        @del:employee="delEmployee"
+      />
     </div>
   </div>
 </template>
@@ -47,7 +54,10 @@ export default {
       const newEmployee = { ...employee, id };
       this.employees = [...this.employees, newEmployee];
       localStorage.setItem('employees', JSON.stringify(this.employees))
-    }
+    },
+    delEmployee(id) {
+      this.employees = this.employees.filter(employee => employee.id !== id)
+    },
   }
 }
 </script>
