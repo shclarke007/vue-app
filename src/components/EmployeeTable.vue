@@ -1,5 +1,5 @@
 <template>
-  <div id="employee-table">
+  <div id="employee-table" class="employee-table-container">
     <h2>{{title}}</h2>
     <p v-if="employees.length < 1" class="empty-table">No employees yet</p>
     <table>
@@ -7,15 +7,27 @@
         <tr>
           <th>{{name}}</th>
           <th>{{email}}</th>
-          <th colspan="2">{{actions}}</th>
+          <th>{{actions}}</th>
         </tr>
       </thead>
       <tbody>
         <tr v-for="employee in employees" :key="employee.id">
-          <td>{{employee.name}}</td>
-          <td>{{employee.email}}</td>
-          <!-- <td><button>Edit</button></td> -->
-          <td><button @click="$emit('del:employee', employee.id)">Del</button></td>
+          <td v-if="editing === employee.id">
+            <input type="text" v-model="employee.name" />
+          </td>
+          <td v-else>{{employee.name}}</td>
+          <td v-if="editing === employee.id">
+            <input type="text" v-model="employee.email">
+          </td>
+          <td v-else>{{employee.email}}</td>
+          <td v-if="editing === employee.id">
+            <button @click="editEmployee(employee)">Save</button>
+            <button class="muted-button" @click="editing = null">Cancel</button>
+          </td>
+          <td v-else>
+            <button @click="editMode(employee.id)">Edit</button>
+            <button @click="$emit('del:employee', employee.id)">Delete</button>
+          </td>
         </tr>
       </tbody>
     </table>
@@ -32,11 +44,37 @@ export default {
     email: String,
     actions: String,
   },
+  data(){
+    return {
+      editing: null, 
+    }
+    },
+  methods: {
+    editMode(id) {
+      this.editing = id
+      // this.cachedEmployee = Object.assign({}, employee)
+      // this.editing = employee.id
+    },
+    editEmployee(employee) {
+      if(employee.name === '' || employee.email === '') return
+      this.$emit('edit:employee', employee.id, employee)
+      this.editing = null
+    }
+  },
+  
 }
 </script>
 
 <style scoped>
+  .employee-table-container {
+    display: flex;
+    flex-direction: column;
+  }
 
+  button {
+    margin: 0 0.5rem 0.5rem 0;
+  }
 </style>
+
 
 
