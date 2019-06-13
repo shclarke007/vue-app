@@ -12,7 +12,7 @@
       <employee-form @add:employee="addEmployee" />
     </div>
     <div>
-      <employee-table heading="Employees Table" :employees="employees" />
+      <employee-table title="Employees Table" :employees="employees" />
     </div>
   </div>
 </template>
