@@ -1,6 +1,7 @@
 <template>
   <div id="employee-table">
     <h2>{{title}}</h2>
+    <p v-if="employees.length < 1" class="empty-table">No employees yet</p>
     <table>
       <thead>
         <tr>
@@ -13,7 +14,7 @@
         <tr v-for="employee in employees" :key="employee.id">
           <td>{{employee.name}}</td>
           <td>{{employee.email}}</td>
-          <td><button>Edit</button></td>
+          <!-- <td><button>Edit</button></td> -->
           <td><button @click="$emit('del:employee', employee.id)">Del</button></td>
         </tr>
       </tbody>
