@@ -31,3 +31,6 @@ npm run build
 npm run lint
 ```
 
+## Resources
+Thanks to [Tania Rascia](https://www.taniarascia.com/getting-started-with-vue/) for the helpful guide in getting started with Vue. You are my hero!
+
