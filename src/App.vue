@@ -58,6 +58,7 @@ export default {
     },
     delEmployee(id) {
       this.employees = this.employees.filter(employee => employee.id !== id)
+      localStorage.setItem('employees', JSON.stringify(this.employees))
     },
     editEmployee(id, updatedEmployee) {
       this.employees = this.employees.map(employee => {
