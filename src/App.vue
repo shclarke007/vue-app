@@ -2,10 +2,10 @@
   <div id="app">
     <nav>
       <div class="logo-container">
-      <img alt="Vue logo" src="./assets/logo.png">
-    </div>
+        <img alt="Vue logo" src="./assets/logo.png">
+      </div>
     <header>
-      <HelloWorld msg="Demo Vue App"/>
+      <hello-world msg="Demo Vue App"/>
     </header>
     </nav>
     <div>
@@ -64,6 +64,7 @@ export default {
       this.employees = this.employees.map(employee => {
         employee.id === id ? updatedEmployee : employee
       })
+      // localStorage.setItem('employees', JSON.stringify(this.employees))
     }
   }
 }
