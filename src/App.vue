@@ -61,10 +61,8 @@ export default {
       localStorage.setItem('employees', JSON.stringify(this.employees))
     },
     editEmployee(id, updatedEmployee) {
-      this.employees = this.employees.map(employee => {
-        employee.id === id ? updatedEmployee : employee
-      })
-      // localStorage.setItem('employees', JSON.stringify(this.employees))
+      this.employees = this.employees.map(employee => employee.id === id ? updatedEmployee : employee)
+      localStorage.setItem('employees', JSON.stringify(this.employees))
     }
   }
 }
@@ -102,6 +100,13 @@ nav {
 button {
   background: #009435;
   border: 1px solid #009435;
+}
+
+button:hover,
+button:active,
+button:focus {
+  background: #32a95d;
+  border: 1px solid #32a95d;
 }
 
 .small-container {
