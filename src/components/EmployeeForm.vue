@@ -57,7 +57,7 @@ export default {
       }
       this.$emit('add:employee', this.employee)
       this.$refs.first.focus()
-      this.employee == {
+      this.employee = {
         name: '',
         email: '',
       }
@@ -88,7 +88,6 @@ export default {
 
   .form-container {
     padding: 20px;
-    
   }
 
   [class*='-message'] {
@@ -105,7 +104,7 @@ export default {
 
   @media screen and (min-width: 600px) {
     .form-container {
-    width: 20%;
+    width: 50%;
     margin: 0 auto;
   }
   }

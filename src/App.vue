@@ -2,10 +2,10 @@
   <div id="app">
     <nav>
       <div class="logo-container">
-      <img alt="Vue logo" src="./assets/logo.png">
-    </div>
+        <img alt="Vue logo" src="./assets/logo.png">
+      </div>
     <header>
-      <HelloWorld msg="Demo Vue App"/>
+      <hello-world msg="Demo Vue App"/>
     </header>
     </nav>
     <div>
@@ -19,6 +19,7 @@
         actions="Actions"
         :employees="employees" 
         @del:employee="delEmployee"
+        @edit:employee="editEmployee"
       />
     </div>
   </div>
@@ -57,7 +58,12 @@ export default {
     },
     delEmployee(id) {
       this.employees = this.employees.filter(employee => employee.id !== id)
+      localStorage.setItem('employees', JSON.stringify(this.employees))
     },
+    editEmployee(id, updatedEmployee) {
+      this.employees = this.employees.map(employee => employee.id === id ? updatedEmployee : employee)
+      localStorage.setItem('employees', JSON.stringify(this.employees))
+    }
   }
 }
 </script>
@@ -94,6 +100,13 @@ nav {
 button {
   background: #009435;
   border: 1px solid #009435;
+}
+
+button:hover,
+button:active,
+button:focus {
+  background: #32a95d;
+  border: 1px solid #32a95d;
 }
 
 .small-container {
