@@ -13,11 +13,11 @@
       <tbody>
         <tr v-for="employee in employees" :key="employee.id">
           <td v-if="editing === employee.id">
-            <input type="text" v-model="employee.name">
+            <input type="text" v-model="employee.name" v-on:keyup.enter="editEmployee(employee)">
           </td>
           <td v-else>{{employee.name}}</td>
           <td v-if="editing === employee.id">
-            <input type="text" v-model="employee.email">
+            <input type="text" v-model="employee.email" v-on:keyup.enter="editEmployee(employee)">
           </td>
           <td v-else>{{employee.email}}</td>
           <td v-if="editing === employee.id">
